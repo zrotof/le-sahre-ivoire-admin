@@ -1,0 +1,52 @@
+.params{
+
+    .icon{
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        transition: background-color 0.3s ease-in-out ;
+        cursor: pointer;
+        border-radius: 50%;
+
+        &:hover{
+            background-color: #d9d9d9;
+        }
+
+        fa-icon{
+            font-size: 1.3rem;
+        }
+    }
+
+    .param-bar-style-class{
+        .param-bar-content{
+            padding: 20px;
+
+            .top{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+
+                .close-button{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 35px;
+                    height: 35px;
+                    border: 1px solid black;
+                    border-radius: 50%;
+                    background-color: transparent;
+                    transition: background-color 0.1s ease-in-out ;
+                    cursor: pointer;
+
+                    &:hover{
+                        background-color: black;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

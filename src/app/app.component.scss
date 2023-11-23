@@ -1,21 +1,23 @@
-.start{
+.app{
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    font-size: 3rem;
-    height: 100vh;
+    width: 100%;
 
-    .faces{
-        display: flex;
-        margin-bottom: 15px;
-
-        fa-icon{
-            margin: 0 7px;
-        }
+    app-header{
+        width: 100%;
     }
 
-    p{
-        margin-bottom: 15px;
+    .content{
+        display: flex;
+        overflow: hidden;
+        height: 100vh;
+
+        .wrapper{
+            transition: all 0.2s ease-in;
+            width: 100%;
+            overflow: scroll;
+            margin-top: 5rem;
+            padding: 3rem
+        }
     }
 }

@@ -1,0 +1,27 @@
+<div class="params">
+    <div class="icon" (click)="onShowHideParamsBar()">
+        <fa-icon [icon]="faGear"></fa-icon>
+    </div>
+
+    <p-sidebar 
+        [(visible)]="isParamsBarVisible" 
+        position="top"
+        styleClass="param-bar-style-class"
+        [showCloseIcon]="false">
+
+        <ng-template pTemplate="content">
+            <div class="param-bar-content">
+                <div class="top">
+                    <h2>Paramètres</h2>
+                    <div 
+                        class="close-button"
+                        (click)="onShowHideParamsBar()"
+                        >
+                        <fa-icon [icon]="faXmark"></fa-icon>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        
+    </p-sidebar>
+</div>

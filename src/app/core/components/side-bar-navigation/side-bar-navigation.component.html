@@ -1,0 +1,32 @@
+<div class="sidebar" [ngClass]="isSideNavToggled ? 'sidebar-collapsed':'sidebar-not-collapsed'">
+    <div class="nav-container">
+        <ng-container *ngFor="let menu of menuList ; let index=index">
+            <div class="nav-item dropdown-menu">
+                <ng-container *ngIf="menu.menuItems.length > 1; else noDropdownMenu">
+                    <div class="item" (click)="onItemMenuClicked(index)">
+                        <p class="left">
+                            <fa-icon [icon]="menu.icon"></fa-icon>
+                            <span> {{menu.label}} </span>
+                        </p>
+                        <fa-icon [icon]="faAngleDown"></fa-icon>
+                    </div>
+
+                    <ul class="nav-item-dropdownable" [ngClass]="menu.active? 'showDropdownMenuItems':'hideDropdownMenuItems'">
+                        <ng-template ngFor let-item [ngForOf]="menu.menuItems" ; let-index="index">
+                            <li> <a routerLinkActive="active-navigation" [routerLinkActiveOptions]="{exact: true}" routerLink={{item.link}}>{{item.label}}</a> </li>
+                        </ng-template>
+                    </ul>
+                </ng-container>
+                
+                <ng-template #noDropdownMenu>
+                    <div class="item" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" [routerLink]="menu.menuItems[0].link"  routerLinkActive="active-navigation" >
+                        <p class="left">
+                            <fa-icon [icon]="menu.icon"></fa-icon>
+                            <span> {{menu.label}} </span>
+                        </p>
+                    </div>
+                </ng-template>
+            </div>
+        </ng-container>
+    </div>
+</div>

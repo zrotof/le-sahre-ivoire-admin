@@ -1,10 +1,19 @@
-<div class="start">
-  <div class="faces">
-    <fa-icon [icon]="faFaceMehBlank" data-aos="fade-left" data-aos-delay="300"></fa-icon>
-    <fa-icon [icon]="faFaceMeh" data-aos="fade-left" data-aos-delay="600"></fa-icon>
-    <fa-icon [icon]="faFaceSmile" data-aos="fade-left" data-aos-delay="900"></fa-icon>
-    <fa-icon [icon]="faFaceLaugh" data-aos="fade-left" data-aos-delay="1200"></fa-icon>
+<ng-container *ngIf="(isUserLogged$ | async ) === true; else notLogged">
+  <div class="app">
+    <app-header></app-header>
+    <div class="content">
+      <app-side-bar-navigation 
+        [screenWidth]="screenWidth"
+        >
+      </app-side-bar-navigation>
+      
+      <div class="wrapper" [ngClass]="styleClass">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </div>
-  <p data-aos="fade-right" data-aos-delay="900">Tout est OK ! </p>
-  <i class="pi pi-check" data-aos="fade-up" data-aos-delay="1500"></i>
-</div>
+</ng-container>
+
+<ng-template #notLogged>
+  <router-outlet></router-outlet>
+</ng-template>
