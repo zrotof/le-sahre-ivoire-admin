@@ -39,7 +39,7 @@ export class SideBarNavigationComponent implements OnInit {
   faReceipt = faReceipt;
   faLaptop = faLaptop;
 
-  menuList !: any[];
+  menuList !: any;
 
   constructor(
     private sidebarStateService : SideBarStateService
@@ -56,51 +56,32 @@ export class SideBarNavigationComponent implements OnInit {
       {
         icon: this.faChartLine,
         label: "Menu item",
-        active: true,
-        menuItems : [
-          { label: "Général", link:"" },
-        ]
+        url: "/"
       },
       {
         icon: this.faBullhorn,
         label: "Menu item",
-        active: false,
-        menuItems : [
-          {label: "menu item", link:""},
-        ]
+        url: "/a"
       },
       {
         icon: this.faReceipt,
         label: "Menu item",
-        active: false,
-        menuItems : [
-          {label: "menu item", link:""},
-        ]
+        url: "/b"
       },
       {
         icon: this.faUtensils,
         label: "Menu item",
-        active: false,
-        menuItems : [
-          {label: "menu item", link:""},
-          {label: "menu item", link:""}
-        ]
+        url: "/c"
       },
       {
         icon: this.faLaptop,
         label: "Menu item",
-        active: false,
-        menuItems : [
-          {label: "menu item", link:""},
-        ]
+        url: "/d"
       },
       {
         icon: this.faUsers,
         label: "Menu item",
-        active: false,
-        menuItems : [
-          {label: "menu item", link:""},
-        ]
+        url: "/e"
       }
     ]
   }

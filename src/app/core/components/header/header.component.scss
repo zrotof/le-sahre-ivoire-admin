@@ -3,12 +3,12 @@ header{
     align-items: center;
     justify-content: space-between;
     height: 5.5em;
-    box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
     background-color: #fff;
     padding: 0 2em;
     z-index: 99;
     position: fixed;
     width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
     .toggler-logo{
         display: flex;
@@ -24,11 +24,10 @@ header{
             width: 30px;
             height: 30px;
             cursor: pointer;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
             color: #0a1c36;
             transition: all 0.2s ease-in-out;
             border: 2px solid black;
-
+                        
             &:hover{
                 background-color: black;
                 color: white;
@@ -41,11 +40,10 @@ header{
             }
         }
         
-
         h1{
             cursor: pointer;
             margin-left: 10px;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
         }
 
     }
