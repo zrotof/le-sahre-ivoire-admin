@@ -1,5 +1,5 @@
 {
-  "name": "angular-starter-v16-standalone",
+  "name": "lsi-admin",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run angular-starter-v16-standalone:serve-ssr",
-    "serve:ssr": "node dist/angular-starter-v16-standalone/server/main.js",
-    "build:ssr": "ng build && ng run angular-starter-v16-standalone:server",
-    "prerender": "ng run angular-starter-v16-standalone:prerender"
+    "dev:ssr": "ng run lsi-admin:serve-ssr",
+    "serve:ssr": "node dist/lsi-admin/server/main.js",
+    "build:ssr": "ng build && ng run lsi-admin:server",
+    "prerender": "ng run lsi-admin:prerender"
   },
   "private": true,
   "dependencies": {

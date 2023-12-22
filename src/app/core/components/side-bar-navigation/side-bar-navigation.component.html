@@ -1,7 +1,10 @@
 <div class="sidebar" [ngClass]="isSideNavToggled ? 'sidebar-collapsed':'sidebar-not-collapsed'">
     <nav>
         <ng-container *ngFor="let menu of menuList">
-            <a class="item" routerLink={{menu.url}} routerLinkActive="active-navigation" >
+            <a class="item" 
+                routerLink={{menu.url}} 
+                routerLinkActive="active-navigation"
+                [routerLinkActiveOptions]="{exact: true}" >
                 <fa-icon [icon]="menu.icon"></fa-icon>
                 <span> {{menu.label}} </span>
             </a>

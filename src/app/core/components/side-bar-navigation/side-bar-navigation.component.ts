@@ -55,32 +55,32 @@ export class SideBarNavigationComponent implements OnInit {
     this.menuList = [
       {
         icon: this.faChartLine,
-        label: "Menu item",
+        label: "Dasboard",
         url: "/"
       },
       {
         icon: this.faBullhorn,
-        label: "Menu item",
-        url: "/a"
+        label: "Annonces",
+        url: "annonces"
       },
       {
         icon: this.faReceipt,
-        label: "Menu item",
+        label: "Commandes",
         url: "/b"
       },
       {
         icon: this.faUtensils,
-        label: "Menu item",
+        label: "Plats",
         url: "/c"
       },
       {
         icon: this.faLaptop,
-        label: "Menu item",
+        label: "Site web",
         url: "/d"
       },
       {
         icon: this.faUsers,
-        label: "Menu item",
+        label: "Menu",
         url: "/e"
       }
     ]

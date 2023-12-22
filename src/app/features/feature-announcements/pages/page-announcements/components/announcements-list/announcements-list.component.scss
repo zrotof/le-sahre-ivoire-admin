@@ -1,0 +1,98 @@
+.announcements-list{
+    margin-top: 5rem;
+
+    .table-header{
+
+        .active-state{
+            width: 150px;
+            text-align: center;
+
+            .round{
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background-color: #ced4db;
+                margin: auto;
+            }
+        }
+
+        .actions{
+            width: 200px !important;
+            text-align: center;
+
+            i{
+                padding: 6px;
+                font-weight: bold;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                border: 1.5px solid white;
+    
+                &:hover{
+                    border: 1.5px solid #191922;
+                }
+            }
+
+            .save-cancel{
+                display: flex;
+                justify-content: flex-end;
+                gap: 0.5rem;
+
+                button{
+                    padding: 10px 12px;
+                    width: fit-content;
+                }
+            }
+        }
+
+        input{
+            width: 100%;
+        }
+
+        .edited-row{
+
+        }
+        
+        .p-inputswitch-checked{
+            .p-inputswitch-slider{
+                background: var(--project-green-primary-color);
+            }
+        }
+    }
+}
+
+.panel-edit-delete{
+    padding: 7px;
+
+    .action-edit-delete{
+        display: flex;
+        flex-direction: column;
+
+        i{
+            padding: 6px;
+            font-weight: bold;
+            margin: 5px 0;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .pi-trash{
+            color: red;
+            border: 1px solid red;
+        }
+
+        .pi-trash:hover{
+            color: white;
+            background-color: red;
+        }
+
+        .pi-pencil{
+            color: green;
+            border: 1px solid green;
+        }
+        .pi-pencil:hover{
+            color: white;
+            background-color: green;
+        }
+    }
+}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-starter-v16-standalone": {
+    "lsi-admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-starter-v16-standalone/browser",
+            "outputPath": "dist/lsi-admin/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,10 +31,10 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/aos/dist/aos.css",
               "src/styles.scss",
-              "./node_modules/primeng/resources/themes/saga-blue/theme.css",
-              "./node_modules/primeng/resources/primeng.min.css"
+              "./node_modules/aos/dist/aos.css",
+              "./node_modules/primeng/resources/primeng.min.css",
+              "./node_modules/primeng/resources/themes/saga-blue/theme.css"
             ],
             "scripts": []
           },
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-starter-v16-standalone:build:production"
+              "browserTarget": "lsi-admin:build:production"
             },
             "development": {
-              "browserTarget": "angular-starter-v16-standalone:build:development"
+              "browserTarget": "lsi-admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-starter-v16-standalone:build"
+            "browserTarget": "lsi-admin:build"
           }
         },
         "test": {
@@ -110,7 +110,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/angular-starter-v16-standalone/server",
+            "outputPath": "dist/lsi-admin/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
@@ -139,12 +139,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "angular-starter-v16-standalone:build:development",
-              "serverTarget": "angular-starter-v16-standalone:server:development"
+              "browserTarget": "lsi-admin:build:development",
+              "serverTarget": "lsi-admin:server:development"
             },
             "production": {
-              "browserTarget": "angular-starter-v16-standalone:build:production",
-              "serverTarget": "angular-starter-v16-standalone:server:production"
+              "browserTarget": "lsi-admin:build:production",
+              "serverTarget": "lsi-admin:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -158,12 +158,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-starter-v16-standalone:build:production",
-              "serverTarget": "angular-starter-v16-standalone:server:production"
+              "browserTarget": "lsi-admin:build:production",
+              "serverTarget": "lsi-admin:server:production"
             },
             "development": {
-              "browserTarget": "angular-starter-v16-standalone:build:development",
-              "serverTarget": "angular-starter-v16-standalone:server:development"
+              "browserTarget": "lsi-admin:build:development",
+              "serverTarget": "lsi-admin:server:development"
             }
           },
           "defaultConfiguration": "production"

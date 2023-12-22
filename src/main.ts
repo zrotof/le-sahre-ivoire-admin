@@ -10,8 +10,7 @@ import { environment } from './environments/environment';
 
 import { AppComponent } from './app/app.component';
 
-const routes: Routes = [
-];
+import { routes } from './app/app.routes';
 
 if (environment.production) {
   enableProdMode();
