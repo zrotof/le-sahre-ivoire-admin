@@ -1,4 +1,4 @@
-# AngularStarterModuleArchitectureV15
+# AngularStarterModuleArchitectureV16
 
 The aim of this project is to provide a set of tools and configurations to facilitate the initialization of an Angular standalone base project
 
