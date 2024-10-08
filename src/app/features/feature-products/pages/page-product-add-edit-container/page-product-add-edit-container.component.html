@@ -1,0 +1,23 @@
+<div class="page-product-add-edit-container">
+    <app-page-top-header [topHeader]="topHeader"></app-page-top-header>
+
+    <ng-container [ngSwitch]="productType">
+        <ng-container *ngSwitchCase="'PLAT'" >
+            <app-dish-form></app-dish-form>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'BOISSON'" >
+            <app-drink-form></app-drink-form>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'DESSERT'" >
+            <app-dessert-form></app-dessert-form>
+        </ng-container>
+
+        <ng-container *ngSwitchCase >
+            <app-dish-form></app-dish-form>
+        </ng-container>
+
+    </ng-container>
+  
+</div>

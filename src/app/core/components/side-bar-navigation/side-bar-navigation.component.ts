@@ -1,9 +1,9 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faLaptop, faReceipt, faUtensils, faBullhorn, faGear, faCirclePlay, faUsers, faNewspaper, faAngleDown, faUserTie, faCalendarAlt, faChartLine, faVideoCamera,  } from '@fortawesome/free-solid-svg-icons';
+import { faTableCellsLarge, faLaptop,faPlus, faReceipt, faUtensils, faBullhorn, faGear, faCirclePlay, faUsers, faNewspaper, faAngleDown, faUserTie, faCalendarAlt, faChartLine, faVideoCamera,  } from '@fortawesome/free-solid-svg-icons';
 import { SideBarStateService } from '../../services/side-bar-state/side-bar-state.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-side-bar-navigation',
@@ -38,6 +38,8 @@ export class SideBarNavigationComponent implements OnInit {
   faUtensils = faUtensils;
   faReceipt = faReceipt;
   faLaptop = faLaptop;
+  faPlus = faPlus;
+  faTableCellsLarge = faTableCellsLarge;
 
   menuList !: any;
 
@@ -56,7 +58,7 @@ export class SideBarNavigationComponent implements OnInit {
       {
         icon: this.faChartLine,
         label: "Dasboard",
-        url: "/"
+        url: "tableau-de-bord"
       },
       {
         icon: this.faBullhorn,
@@ -70,8 +72,18 @@ export class SideBarNavigationComponent implements OnInit {
       },
       {
         icon: this.faUtensils,
-        label: "Plats",
-        url: "/c"
+        label: "Produits",
+        url: "/produits/liste-produits"
+      },
+      {
+        icon: this.faTableCellsLarge,
+        label: "Catégories produits",
+        url: "/produits/liste-produits"
+      },
+      {
+        icon: this.faPlus,
+        label: "Options",
+        url: "/options/liste-options"
       },
       {
         icon: this.faLaptop,

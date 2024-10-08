@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { UserConnectedMenuSideBarComponent } from '../user-connected-menu-side-bar/user-connected-menu-side-bar.component';
 import { NgClass } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { ParamsComponent } from '../params/params.component';
 import { SideBarStateService } from '../../services/side-bar-state/side-bar-state.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',

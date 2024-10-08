@@ -1,0 +1,29 @@
+.page-product-list-container{
+    .actions{
+        display: flex;
+        margin-bottom: 30px;
+        justify-content: flex-end;
+    
+        button{
+            display: flex;
+            padding: 10px 25px;
+            font-size: 15px;
+            align-items: center;
+            transition: all 0.2s ease-in-out;
+    
+            fa-icon{
+                margin-right: 10px;
+            }
+        }
+    
+        .add{
+            background-color: var(--project-green-primary-color);
+            color: white;
+    
+            &:hover{
+                background-color: var(--project-green-secondary-color);
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+        }
+    }
+}

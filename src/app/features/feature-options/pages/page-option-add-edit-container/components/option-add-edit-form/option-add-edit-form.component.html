@@ -1,0 +1,66 @@
+<div class="option-add-edit-form">
+
+    <div class="actions">
+        <button type="submit" class="save" (click)="onSaveForm()">
+            <i class="pi pi-save"></i>
+            Enregistrer
+        </button>
+
+        <button class="cancel" type="menu" (click)="onCancel()">
+            <i class="pi pi-times"></i>
+            Annuler 
+        </button>
+    </div>
+
+    <header>
+
+        <div class="row-one" [formGroup]="optionsForm">
+            <div class="field">
+                <label>Nom de l'option</label>
+
+                <input 
+                    type="text" 
+                    pInputText 
+                    formControlName="option"
+                    placeholder="Renseigner le nom du l'option"
+                />
+            
+                <small *ngIf="formControls['option'].invalid && isFormSubmitted" class="p-error">Renseignez le nom de l'option</small>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <form [formGroup]="optionsForm">
+            <div class="possibilities" formArrayName="optionPossibilities" >
+                <ng-container *ngFor="let possibility of optionPossibilities.controls; let i = index">
+                    <div class="row-one" [formGroupName]="i">
+                        <div class="field">
+                            <label>Possibilité {{i+1}}</label>
+                            <button (click)="removeOtion(i)"> 
+                                <i class="pi pi-times"></i>
+                            </button>
+                            <input 
+                                type="text" 
+                                pInputText 
+                                formControlName="optionPossibility"
+                                placeholder="Renseigner la possibilité"
+                            />
+
+                            <small *ngIf="isFormSubmitted && possibility.get('optionPossibility')?.hasError('required')" class="p-error">Renseignez cette possibilité</small>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+
+            <button (click)="onAddOption()">  
+                <i class="pi pi-plus"></i>
+                <span>Ajouter possibilité</span>
+            </button>
+        </form>
+        
+    </div>
+
+</div>
+<p-toast></p-toast>

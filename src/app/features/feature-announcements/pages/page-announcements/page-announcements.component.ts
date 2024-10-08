@@ -26,9 +26,7 @@ export class PageAnnouncementsComponent implements OnInit {
 
   constructor(
     private announceService : AnnouncesService
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(): void {
       this.initTopHeaderData();

@@ -1,0 +1,44 @@
+<div class="page-option-list-container">
+
+    <app-page-top-header [topHeader]="topHeader"></app-page-top-header>
+
+    <div class="actions">
+        <button class="add" routerLink="/options/creer">
+            <fa-icon [icon]="faPlus"></fa-icon>
+            <span>Ajouter Option</span>
+        </button>
+    </div>
+
+    <ng-container *ngFor="let option of (optionList$ | async)?.data">
+        <app-option-accordion-item 
+            [optionWithPossibilities]="option"
+            (editOptionEvent)="onEditOption($event)"
+            (deleteOptionEvent)="onDeleteOption($event)"
+            >
+        </app-option-accordion-item>
+    </ng-container>
+    
+</div>
+
+<p-confirmDialog 
+    #cd
+    styleClass="delete-message"  
+    [breakpoints]="{'960px': '75vw', '640px': '100vw'}" 
+    [style]="{width: '50vw'}">
+
+    <ng-template pTemplate="header">
+        <h3>Confirmation de suppression</h3>
+    </ng-template>
+    <ng-template pTemplate="message">
+        <p>Voulez-vous vraiment supprimer cette option?</p>
+        <p>Cette action supprimera aussi toutes les possibilités associées ?</p>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button class="cancel" type="button" pButton icon="pi pi-times" label="Non, j'annule" (click)="cd.reject()"></button>
+        <button class="confirm-delation" type="button" pButton icon="pi pi-trash" label="Oui, je supprime" (click)="cd.accept()"></button>
+    </ng-template>
+
+</p-confirmDialog>
+<p-toast position="top-right"></p-toast> 
+

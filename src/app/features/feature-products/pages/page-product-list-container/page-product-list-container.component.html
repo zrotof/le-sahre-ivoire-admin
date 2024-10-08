@@ -1,0 +1,12 @@
+<div class="page-product-list-container">
+    <app-page-top-header [topHeader]="topHeader"></app-page-top-header>
+
+    <div class="actions">
+        <button class="add" (click)="menu.toggle($event)">
+            <fa-icon [icon]="faPlus"></fa-icon>
+            <span>Nouveau Produit</span>
+        </button>
+        <p-menu #menu [model]="items" [popup]="true"></p-menu>
+    </div>
+    
+</div>

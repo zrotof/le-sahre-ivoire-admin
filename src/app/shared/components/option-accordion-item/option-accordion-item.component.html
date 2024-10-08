@@ -1,0 +1,21 @@
+<div class="option-accordion-item" [ngClass]="isPossibilitiesShow ? 'active-accordion' : ''">
+    <header>
+        <span (click)="onAccordionHeaderClick()">{{optionWithPossibilities.label}}</span>
+        <div class="accordion-action">
+            <i class="pi pi-ellipsis-v" (click)="op.toggle($event)"></i>
+            <p-overlayPanel styleClass="panel-edit-delete" #op>
+                <ng-template pTemplate>
+                    <div class="action-edit-delete">
+                        <i (click)="editOptionEventTrigger(optionWithPossibilities.id)" class="pi pi-pencil"></i>
+                        <i (click)="deleteOptionEventTrigger(optionWithPossibilities.id)" class="pi pi-trash"></i>
+                    </div>
+                </ng-template>
+            </p-overlayPanel>
+        </div>
+    </header>
+    <div class="content">
+        <ng-container *ngFor="let possibility of optionWithPossibilities.possibilities; let i=index">
+            <span> {{i+1}}- {{possibility.label}} </span>
+        </ng-container>
+    </div>
+</div>

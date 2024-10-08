@@ -1,0 +1,181 @@
+<div class="dessert-form">
+    <form [formGroup]="dessertForm" >
+
+        <div class="left">
+            <div class="row-one">
+                <div class="field">
+                    <label>Nom du déssert</label>
+                    <input 
+                        type="text" 
+                        pInputText 
+                        formControlName="name"
+                        placeholder="Renseigner le nom du produit"
+                    />
+                    <small *ngIf="formControls['name'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">Renseigner le nom du déssert</small>
+                </div>
+            </div>
+
+            <div class="row-one">
+                <div class="field">
+                    <label>Prix (ne pas renseigner la devise)</label>
+                    <input 
+                        type="text" 
+                        pInputText 
+                        formControlName="name"
+                        placeholder="Renseigner le prix"
+                    />
+                    <small *ngIf="formControls['name'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">Renseigner le nom du déssert</small>
+                </div>
+            </div>
+
+            <div class="row-one">
+                <div class="field">
+                    <label>Description</label>
+                    <textarea rows="4" cols="30" pInputTextarea formControlName="description" placeholder="Renseigner une brève description"></textarea>
+
+                    <small *ngIf="formControls['description'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">Renseigner la description nom du déssert</small>
+                </div>
+            </div>
+
+            <div class="row-one">
+                <div class="field">
+                    <label>Liste des ingrédients</label>
+                    <p-chips formControlName="ingredients" placeholder="Renseigner les ingredients"></p-chips>
+
+                    <small *ngIf="formControls['ingredients'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">Veuillez renseigner les ingredients</small>
+                </div>
+            </div>
+
+            <div class="attributes-added-bloc" formArrayName="attributes" *ngIf="attributes.controls.length > 0">
+                
+                <p>Attribut(s)</p>
+
+                <div class="attributes-added">
+                    <ng-container *ngFor="let attribute of attributes.controls; let i = index" >
+                        <div class="attribute-added" [formGroupName]="i">
+                            <div class="top">
+                                <span class="header">{{attribute.get('attributeChoosed')?.value.name}} </span>
+                                <button (click)="removeAttributes(i)">
+                                    <span>Supprimer</span>
+                                    <i class="pi pi-trash"></i>
+                                </button>
+                            </div>
+        
+                            <div class="bottom">
+                                <div class="row-one">
+                                    <div class="field">
+                                        <label>Le client devra t'il obligatoirement faire un choix ?</label>
+                                        
+                                        <div class="mandatory-choices">
+    
+                                            <div class="mandatory-choice">
+                                                <label for="mandatory-true">Oui</label>
+                                                <p-radioButton inputId="mandatory-true" [value]="true" formControlName="isMandatory"></p-radioButton>
+                                            </div>
+    
+                                            <div class="mandatory-choice">
+                                                <p-radioButton inputId="mandatory-false" [value]="false" formControlName="isMandatory"></p-radioButton>
+                                                <label for="mandatory-false">Non</label>
+                                            </div>
+    
+                                        </div>
+                                        <small *ngIf="formControls['name'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">Renseigner le nom du déssert</small>
+                                    </div>
+                                </div>
+    
+                                <div class="row-one">
+                                    <div class="field">
+                                        <label>Combien de choix pourra t'il effectuer au maximum ?</label>
+                                        <p-inputNumber [min]="0" [max]="3" [showButtons]="true" formControlName="choicesNumber"></p-inputNumber>
+                                        <small *ngIf="formControls['name'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">Renseigner le nom du déssert</small>
+                                    </div>
+                                </div>
+
+                                <div class="row-one">
+                                    <div class="field">
+                                        <label>Sélectionner les options</label>
+                                        <p-multiSelect [options]="attributeList" formControlName="options" optionLabel="name" placeholder="Choisir les possibilités"></p-multiSelect>
+                                        <small *ngIf="formControls['name'].invalid && ( isSaveButtonClicked || isEditButtonClicked)" class="p-error">Renseigner le nom du déssert</small>    
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+            </div>
+
+            <button class="add-attribute-button" type="button" (click)="op.toggle($event)">
+                <i class="pi pi-plus"></i>
+                <span>Ajoutez un accompagnant</span>
+            </button>
+            <p-overlayPanel #op>
+                <div class="attribute-list">
+                    <ng-container *ngFor="let attribute of attributeList">
+                        <button 
+                            class="attribute" 
+                            (click)="op.toggle($event)"
+                            (click)="onAddAttribute(attribute)"
+                            >
+                            {{attribute.name}}
+                        </button>
+                    </ng-container>
+                </div>
+            </p-overlayPanel>
+        </div>
+
+        <div class="right">
+            <div class="image-block">
+                <div class="upload">    
+                    <div class="label-input">
+                        <label for="image-no-background">
+                            <i class="pi pi-upload"></i>
+                            <span>Image sans fond</span>
+                        </label>
+                        <input type="file" id="image-no-background" accept="image/*" (change)="showImagePreview($event)">    
+                    </div>
+                    <div *ngIf="formControls['noBackgroundedImage'].invalid && ( isSaveButtonClicked || isEditButtonClicked )" class="p-error">
+                        <small *ngIf="formControls['noBackgroundedImage'].errors?.['required']" >Image manquante</small>                    
+                    </div>
+                </div>
+                <ng-container *ngIf="isNoBackgroundedImageEdited === true; else noBgImage">
+                    <div class="no-empty-image-preview">
+                        <img [src]="noBackgroundedImage" alt="Image sans fond">
+                    </div>
+                </ng-container>
+                <ng-template #noBgImage>
+                    <div class="empty-image-preview">
+                        <i class="pi pi-image"></i>
+                    </div>
+                </ng-template>
+            </div>
+            <div class="image-block">
+                <div class="upload">    
+                    <div class="label-input">
+                        <label for="image-with-background">
+                            <i class="pi pi-upload"></i>
+                            <span>Image avec fond</span>
+                        </label>
+                        <input type="file" id="image-with-background" accept="image/*" (change)="showImagePreview($event)">    
+                    </div>
+                    <div *ngIf="formControls['backgroundedImage'].invalid && ( isSaveButtonClicked || isEditButtonClicked )" class="p-error">
+                        <small *ngIf="formControls['backgroundedImage'].errors?.['required']" >Image manquante</small>                    
+                    </div>
+                </div>
+                <ng-container *ngIf="isBackgroundImageEdited === true; else bgImage">
+                    <div class="no-empty-image-preview">
+                        <img [src]="backgroundedImage" alt="Image avec fond">
+                    </div>
+                </ng-container>
+                <ng-template #bgImage>
+                    <div class="empty-image-preview">
+                        <i class="pi pi-image"></i>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+
+    </form>
+</div>
